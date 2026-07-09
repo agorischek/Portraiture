@@ -30,7 +30,7 @@
     "test:ts": "npm run build && node --test test/*.test.mjs"
   },
   "devDependencies": {
-    "@types/node": "^20.14.10",
+    "@types/node": "^26.1.1",
     "typescript": "^5.5.3"
   },
   "engines": {
