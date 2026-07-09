@@ -2,35 +2,70 @@ version: 2
 updates:
   - package-ecosystem: github-actions
     directory: /
+    open-pull-requests-limit: 1
     schedule:
       interval: weekly
+    groups:
+      github-actions:
+        patterns:
+          - "*"
 
   - package-ecosystem: npm
     directory: /
+    open-pull-requests-limit: 1
     schedule:
       interval: weekly
+    groups:
+      npm:
+        patterns:
+          - "*"
 
   - package-ecosystem: pip
     directory: /python
+    open-pull-requests-limit: 1
     schedule:
       interval: weekly
+    groups:
+      python:
+        patterns:
+          - "*"
 
   - package-ecosystem: nuget
     directory: /csharp/Portraiture
+    open-pull-requests-limit: 1
     schedule:
       interval: weekly
+    groups:
+      csharp:
+        patterns:
+          - "*"
 
   - package-ecosystem: nuget
     directory: /csharp/Portraiture.Tests
+    open-pull-requests-limit: 1
     schedule:
       interval: weekly
+    groups:
+      csharp-tests:
+        patterns:
+          - "*"
 
   - package-ecosystem: gomod
     directory: /go
+    open-pull-requests-limit: 1
     schedule:
       interval: weekly
+    groups:
+      go:
+        patterns:
+          - "*"
 
   - package-ecosystem: cargo
     directory: /rust
+    open-pull-requests-limit: 1
     schedule:
       interval: weekly
+    groups:
+      rust:
+        patterns:
+          - "*"
