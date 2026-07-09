@@ -1,0 +1,39 @@
+{
+  "name": "portraiture",
+  "version": "0.1.0",
+  "description": "Run dependency-free environment collection scripts and capture their output.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "test": "npm run test:ts",
+    "test:all": "npm run test:ts && npm run test:python && npm run test:csharp && npm run test:go && npm run test:elixir && npm run test:powershell && npm run test:rust",
+    "test:csharp": "dotnet test csharp/Portraiture.Tests/Portraiture.Tests.csproj",
+    "test:elixir": "cd elixir && mix test",
+    "test:go": "cd go && go test ./...",
+    "test:powershell": "pwsh -NoProfile -Command \"Invoke-Pester -Path powershell/Portraiture.Tests.ps1 -CI\"",
+    "test:python": "PYTHONPATH=python/src python3 -W error::ResourceWarning -m unittest discover -s python/tests",
+    "test:rust": "cd rust && cargo test",
+    "test:ts": "npm run build && node --test test/*.test.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "typescript": "^5.5.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

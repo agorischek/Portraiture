@@ -1,0 +1,10 @@
+[package]
+name = "portraiture"
+version = "0.1.0"
+edition = "2021"
+description = "Run dependency-free environment collection scripts and capture their output."
+license = "MIT"
+
+[lib]
+name = "portraiture"
+path = "src/lib.rs"
