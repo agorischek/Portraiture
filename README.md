@@ -52,6 +52,11 @@ console.log(result.value);
 
 User-facing language docs live in [docs/README.md](docs/README.md).
 
+## Contributing and security
+
+- See [CONTRIBUTING.md](CONTRIBUTING.md) for development and pull request notes.
+- See [SECURITY.md](SECURITY.md) for vulnerability reporting and security scope.
+
 ## Tests
 
 Run every language suite:
