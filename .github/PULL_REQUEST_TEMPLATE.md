@@ -2,6 +2,10 @@
 
 - 
 
+## Issue
+
+Link the issue this PR addresses.
+
 ## Validation
 
 - [ ] TypeScript tests
@@ -15,4 +19,6 @@
 
 ## Notes
 
-Anything reviewers should know?
+This project is issues-first for external contributions. Unsolicited PRs may be
+closed if they are not linked to a maintainer-accepted issue or maintainer-owned
+work.

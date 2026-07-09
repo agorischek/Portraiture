@@ -1,22 +1,25 @@
 ---
 name: Bug report
-about: Report behavior that seems incorrect
+about: Report behavior that seems incorrect, with enough detail to reproduce it
 title: ""
 labels: bug
 assignees: ""
 ---
 
-## What happened?
+## Summary
 
-Describe the behavior you saw.
+What behavior seems incorrect?
 
-## What did you expect?
+## Expected behavior
 
-Describe the behavior you expected instead.
+What did you expect Portraiture to do?
 
-## Language implementation
+## Actual behavior
 
-Which implementation is affected?
+What did Portraiture do instead? Include relevant stdout, stderr, exit status,
+error kind, or result metadata.
+
+## Affected implementation
 
 - TypeScript
 - Python
@@ -29,9 +32,19 @@ Which implementation is affected?
 ## Reproduction
 
 Include the smallest command, script, or code sample that reproduces the issue.
+If the script is relevant, include its contents.
+
+```text
+
+```
 
 ## Environment
 
 - OS:
 - Runtime version:
 - Portraiture version or commit:
+
+## Notes
+
+Add any context about shells, interpreters, working directory, environment
+variables, timeout behavior, or stdin.

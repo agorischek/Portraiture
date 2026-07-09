@@ -2,6 +2,24 @@
 
 Thanks for helping improve Portraiture.
 
+## Issues first for external contributions
+
+Portraiture uses detailed issues as the primary path for external contribution
+discussion. Please open an issue for bugs, feature requests, API proposals, and
+new language implementation ideas before sending code.
+
+A good issue includes:
+
+- the affected language implementation
+- the smallest reproduction or concrete API sketch
+- expected behavior
+- actual behavior or motivation
+- any compatibility concerns
+
+Maintainers use issues to discuss scope and then make repository changes through
+the maintainer workflow. Unsolicited pull requests may be closed if they are not
+linked to a maintainer-accepted issue or maintainer-owned work.
+
 ## Development
 
 Install dependencies from the repository root:
@@ -38,9 +56,6 @@ Use `REQUIREMENTS.md` as the internal implementation contract.
 
 ## Pull requests
 
-Before opening a pull request:
-
-- keep scripts dependency-free from Portraiture itself
-- add or update tests for the affected language
-- update docs in `docs/` for user-facing behavior
-- mention any language implementations that intentionally do not change
+Pull requests are still used for maintainer workflow, trusted automation, and
+work that maintainers have explicitly requested. PRs should link to the relevant
+issue and pass the full language test matrix before merge.

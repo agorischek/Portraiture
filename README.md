@@ -52,9 +52,12 @@ console.log(result.value);
 
 User-facing language docs live in [docs/README.md](docs/README.md).
 
-## Contributing and security
+## Issues and security
 
-- See [CONTRIBUTING.md](CONTRIBUTING.md) for development and pull request notes.
+- Please use detailed GitHub issues for bugs, feature requests, and API
+  proposals before sending code.
+- See [CONTRIBUTING.md](CONTRIBUTING.md) for the issues-first contribution
+  policy.
 - See [SECURITY.md](SECURITY.md) for vulnerability reporting and security scope.
 
 ## Tests
