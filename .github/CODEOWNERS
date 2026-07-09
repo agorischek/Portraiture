@@ -1,0 +1,19 @@
+# Default owner for all repository changes.
+* @agorischek
+
+# CI, repository policy, and contribution workflow.
+/.github/ @agorischek
+
+# Public documentation.
+/README.md @agorischek
+/docs/ @agorischek
+
+# Language implementations.
+/src/ @agorischek
+/test/ @agorischek
+/python/ @agorischek
+/csharp/ @agorischek
+/go/ @agorischek
+/elixir/ @agorischek
+/powershell/ @agorischek
+/rust/ @agorischek
