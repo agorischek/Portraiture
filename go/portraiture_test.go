@@ -989,14 +989,26 @@ func TestPackageLevelCaptureScriptParsed(t *testing.T) {
 	t.Parallel()
 	skipWindowsScriptTest(t)
 	script := writeTempScript(t, "answer.sh", "#!/bin/sh\nprintf '9'\n")
-	result := CaptureScriptParsed(
-		context.Background(),
-		script,
-		nil,
-		func(text string, _ CaptureContext) (int, error) {
-			return strconv.Atoi(text)
-		},
-	)
+	var result Result[int]
+	for attempt := 0; attempt < 4; attempt++ {
+		result = CaptureScriptParsed(
+			context.Background(),
+			script,
+			nil,
+			func(text string, _ CaptureContext) (int, error) {
+				return strconv.Atoi(text)
+			},
+		)
+		if result.Error == nil || !strings.Contains(result.Error.Message, "text file busy") {
+			break
+		}
+		if attempt == 3 {
+			break
+		}
+		// Linux CI filesystems can briefly retain a writer after creating an
+		// executable fixture. Retry only that transient kernel error.
+		time.Sleep(time.Duration(10*(1<<attempt)) * time.Millisecond)
+	}
 
 	if !result.Ok || result.Value != 9 {
 		t.Fatalf("expected parsed script value 9, got %d (%#v)", result.Value, result.Error)
