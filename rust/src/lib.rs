@@ -800,7 +800,20 @@ mod tests {
             "#!/bin/sh\nprintf 'direct:%s' \"$1\"\n",
             true,
         );
-        let result = capture_script(script.clone(), ["one"]);
+        let mut result = capture_script(script.clone(), ["one"]);
+        for attempt in 0..3 {
+            let text_file_busy = result
+                .error
+                .as_ref()
+                .is_some_and(|error| error.message.contains("Text file busy"));
+            if !text_file_busy {
+                break;
+            }
+            // Linux CI filesystems can briefly retain a writer after creating
+            // an executable fixture. Retry only that transient kernel error.
+            thread::sleep(Duration::from_millis(10 * (1 << attempt)));
+            result = capture_script(script.clone(), ["one"]);
+        }
         assert!(result.ok);
         assert_eq!(result.value.unwrap(), "direct:one");
         assert_eq!(result.target.command, script);
